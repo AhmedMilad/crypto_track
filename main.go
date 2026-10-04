@@ -3,6 +3,7 @@ package main
 import (
 	"crypto_track/routes/api"
 	"log"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -22,5 +23,6 @@ func main() {
 	r := gin.Default()
 
 	api.Handle(r)
-	r.Run()
+
+	r.Run(os.Getenv("DOMAIN"))
 }
